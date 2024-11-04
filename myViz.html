@@ -1,0 +1,38 @@
+import plotly.express as px
+import plotly.io as pio
+
+# Sample Data: Built-in dataset for plotting a world map
+df = px.data.gapminder()
+
+# Create a choropleth map showing life expectancy in 2007
+fig = px.choropleth(
+    df[df['year'] == 2007], 
+    locations="iso_alpha",  # ISO-3 country codes
+    color="lifeExp",        # Data to color by
+    hover_name="country",   # Hover info
+    color_continuous_scale=px.colors.sequential.Plasma,
+    title="Global Life Expectancy in 2007"
+)
+
+# Get HTML string
+html_str = pio.to_html(fig, full_html=False)
+
+# Embed this HTML string within your HTML document as follows:
+html_doc = f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Expectancy Map</title>
+</head>
+<body>
+    <h1>Global Life Expectancy in 2007</h1>
+    {html_str}  <!-- Plotly graph will render here -->
+</body>
+</html>
+"""
+
+# Save the complete HTML document
+with open("life_expectancy_map_embed.html", "w") as file:
+    file.write(html_doc)
