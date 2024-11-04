@@ -1,38 +1,57 @@
-import plotly.express as px
-import plotly.io as pio
-
-# Sample Data: Built-in dataset for plotting a world map
-df = px.data.gapminder()
-
-# Create a choropleth map showing life expectancy in 2007
-fig = px.choropleth(
-    df[df['year'] == 2007], 
-    locations="iso_alpha",  # ISO-3 country codes
-    color="lifeExp",        # Data to color by
-    hover_name="country",   # Hover info
-    color_continuous_scale=px.colors.sequential.Plasma,
-    title="Global Life Expectancy in 2007"
-)
-
-# Get HTML string
-html_str = pio.to_html(fig, full_html=False)
-
-# Embed this HTML string within your HTML document as follows:
-html_doc = f"""
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life Expectancy Map</title>
-</head>
-<body>
-    <h1>Global Life Expectancy in 2007</h1>
-    {html_str}  <!-- Plotly graph will render here -->
-</body>
-</html>
-"""
+<meta charset="utf-8">
 
-# Save the complete HTML document
-with open("life_expectancy_map_embed.html", "w") as file:
-    file.write(html_doc)
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+<!-- Create an element where the map will take place -->
+<svg id="my_dataviz" width="500" height="400"></svg>
+
+<script>
+
+    // The svg
+    var svg = d3.select("svg"),
+      width = +svg.attr("width"),
+      height = +svg.attr("height");
+    
+    // Map and projection
+    var path = d3.geoPath();
+    var projection = d3.geoMercator()
+      .scale(70)
+      .center([0,20])
+      .translate([width / 2, height / 2]);
+    
+    // Data and color scale
+    var data = d3.map();
+    var colorScale = d3.scaleThreshold()
+      .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
+      .range(d3.schemeBlues[7]);
+    
+    // Load external data and boot
+    d3.queue()
+      .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
+      .defer(d3.csv, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", function(d) { data.set(d.code, +d.pop); })
+      .await(ready);
+    
+    function ready(error, topo) {
+    
+      // Draw the map
+      svg.append("g")
+        .selectAll("path")
+        .data(topo.features)
+        .enter()
+        .append("path")
+          // draw each country
+          .attr("d", d3.geoPath()
+            .projection(projection)
+          )
+          // set the color of each country
+          .attr("fill", function (d) {
+            d.total = data.get(d.id) || 0;
+            return colorScale(d.total);
+          });
+        }
+    
+    </script>
