@@ -159,7 +159,7 @@ function createVisualization(rawData) {
 
 // If using CSV data
 // d3.csv('https://raw.githubusercontent.com/curran/data/gh-pages/youtube/youtube.csv').then(data => {
-d3.csv('https://github.com/kareenakunwar/kareenakunwar.github.io/blob/main/youtube_data.csv').then(data => {
+d3.csv('https://raw.githubusercontent.com/kareenakunwar/kareenakunwar.github.io/main/youtube_data.csv').then(data => {
     // Convert string numbers to actual numbers
     data.forEach(d => {
         d.subscribers = parseInt(d.subscribers.replace(/,/g, ''));
