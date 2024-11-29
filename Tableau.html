@@ -6,79 +6,139 @@
     <title>COVID-19 Dataset Analysis</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            margin: 20px auto;
-            max-width: 900px;
-            padding: 0 20px;
-            background-color: #f4f4f9;
-            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            color: #444;
         }
-        h1, h2, h3 {
-            color: #0056b3;
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
         }
         h1 {
-            text-align: center;
-            margin-bottom: 20px;
+            margin: 0;
+            font-size: 36px;
         }
-        iframe {
-            display: block;
-            margin: 20px auto;
-            border: none;
-            width: 100%;
-            max-width: 850px;
-            height: 600px;
+        .container {
+            width: 85%;
+            margin: 30px auto;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 10px 0;
         }
         ul {
             margin: 10px 0;
             padding-left: 20px;
+            font-size: 16px;
         }
-        p {
-            margin: 10px 0;
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
         }
-        .section {
-            margin-bottom: 30px;
+        .images img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .images img:hover {
+            transform: scale(1.05);
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #003d80;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
-    <h1>COVID-19 Dataset Analysis</h1>
+    <header>
+        <h1>COVID-19 Dataset Analysis</h1>
+        <p>Explore key insights from the global COVID-19 dataset.</p>
+    </header>
 
-    <!-- Tableau Dashboard Embed -->
-    <div class="section">
-        <h2>Interactive Dashboard</h2>
-        <p>Explore the Tableau dashboard below to interact with key visualizations and trends in the COVID-19 dataset.</p>
-        <iframe 
-            src= "https://public.tableau.com/app/profile/kareena.kunwar/viz/KKTableAUFinished/Story1"
-            allowfullscreen>
-        </iframe>
+    <div class="container">
+        <!-- Key Insights Section -->
+        <div class="section">
+            <h2>Key Insights</h2>
+            <h3>1. Testing and Cases</h3>
+            <p>Testing volumes increased significantly in 2021 compared to 2020, enabling better tracking and management of the pandemic. Regions with higher testing rates demonstrated lower case fatality rates, emphasizing the importance of widespread testing.</p>
+
+            <h3>2. Vaccination Progress</h3>
+            <p>Higher vaccination rates correlate with significantly reduced mortality rates, highlighting the effectiveness of vaccines in mitigating severe outcomes and controlling the spread of the virus.</p>
+
+            <h3>3. Healthcare Strain</h3>
+            <p>A strong relationship between ICU cases and deaths underscores the critical role of healthcare infrastructure. Countries with robust ICU and hospital facilities managed to reduce mortality rates despite high case counts.</p>
+
+            <h3>4. Regional Disparities</h3>
+            <p>Geographic and economic disparities significantly influenced outcomes. Wealthier regions with better healthcare systems and higher vaccination coverage reported fewer deaths per million compared to under-resourced regions.</p>
+
+            <h3>5. Continental Trends</h3>
+            <p>Asia and Europe reported the highest case numbers, but Africa, despite having fewer cases, faced challenges due to limited healthcare resources. This disparity underscores the global inequality in pandemic response.</p>
+        </div>
+
+        <!-- Section for Tableau Dashboard Link -->
+        <div class="section">
+            <h2>Interactive Dashboard</h2>
+            <p>Explore the interactive Tableau dashboard to visualize trends and insights from the COVID-19 dataset. Click the link below to access the dashboard:</p>
+            <!-- Replace this URL with your actual Tableau Public dashboard URL -->
+            <a href="https://public.tableau.com/app/profile/kareena.kunwar/viz/KKTableAUFinished/Story1"_blank">View Tableau Dashboard</a>
+        </div>
+
+        <!-- Section for Images -->
+        <div class="section">
+            <h2>Visual Data Insights</h2>
+            <p>Below are the visual representations from different sheets of the COVID-19 dataset, providing a deeper understanding of the trends and insights.</p>
+            <div class="images">
+                <!-- Replace these src with actual image paths or URLs -->
+                <img src="Image1.png" alt="Visualization 1">
+                <img src="Image2.png" alt="Visualization 2">
+                <img src="Image3.png" alt="Visualization 3">
+                <img src="Image4.png" alt="Visualization 4">
+                <img src="Image5.png" alt="Visualization 5">
+            </div>
+        </div>
+
+        <!-- Conclusion Section -->
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>This analysis emphasizes the critical roles of testing, vaccination, and healthcare preparedness in mitigating the impact of pandemics. It also highlights the need for addressing global inequalities to improve resilience against future health crises.</p>
+        </div>
     </div>
 
-    <!-- Key Insights Section -->
-    <div class="section">
-        <h2>Key Insights</h2>
-        <h3>1. Testing and Cases</h3>
-        <p>Testing volumes increased significantly in 2021 compared to 2020, enabling better tracking and pandemic management. Regions with higher testing rates demonstrated lower case fatality rates, emphasizing the importance of widespread testing.</p>
-
-        <h3>2. Vaccination Progress</h3>
-        <p>Higher vaccination rates correlate with reduced mortality rates, highlighting the effectiveness of vaccines in mitigating severe outcomes and controlling the spread of the virus.</p>
-
-        <h3>3. Healthcare Strain</h3>
-        <p>A strong relationship between ICU cases and deaths underscores the critical role of healthcare infrastructure. Countries with robust ICU and hospital facilities managed to reduce mortality rates despite high infection counts.</p>
-
-        <h3>4. Regional Disparities</h3>
-        <p>Geographic and economic disparities significantly influenced outcomes. Wealthier regions with better healthcare systems and higher vaccination coverage reported fewer deaths per million compared to under-resourced regions.</p>
-
-        <h3>5. Continental Trends</h3>
-        <p>Asia and Europe reported the highest case numbers, but Africa, despite having fewer cases, faced challenges due to limited healthcare resources. This disparity highlights global inequalities in pandemic response.</p>
-    </div>
-
-    <!-- Conclusion Section -->
-    <div class="section">
-        <h2>Conclusion</h2>
-        <p>
-            This analysis emphasizes the critical roles of testing, vaccination, and healthcare preparedness in mitigating the impact of pandemics. It also highlights the need for addressing global inequalities to improve resilience against future health crises.
-        </p>
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy; 2024 COVID-19 Dataset Analysis | All Rights Reserved</p>
     </div>
 </body>
 </html>
