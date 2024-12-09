@@ -1,16 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Viz</title>
+    <title>Superstore Data Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px 0;
+        }
+
+        h1,
+        h2 {
+            color: #0056b3;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
 </head>
+
 <body>
+    <div class="container">
+        <h1>Superstore Data Analysis</h1>
+        <p>This analysis provides insights into sales performance and trends from the Superstore dataset using Tableau
+            visualizations.</p>
 
-    <p>This site is for lab 3.5 in Data Visualization.</p>
-    
-    <!-- Link to 'myViz.html' in the same directory -->
-    <a href="./myViz.html">Click here to go to my visualization</a>
+        <!-- Section 1: Sales Distribution -->
+        <div class="section">
+            <h2>1. Sales Distribution Across States</h2>
+            <img src="sales.png" alt="Sales Distribution Across States">
+            <p>
+                <strong>Top 3 States:</strong> California, New York, Texas<br>
+                <strong>Bottom 3 States:</strong> Wyoming, North Dakota, South Dakota
+            </p>
+            <p>
+                <strong>Insights:</strong>
+                The sales distribution reveals significant concentration in urbanized and populous states like
+                California, New York, and Texas. These states have robust economies and higher customer demand.
+                Conversely, sparsely populated states like Wyoming and North Dakota have the lowest sales, reflecting
+                limited market size and customer reach.
+            </p>
+        </div>
 
+        <!-- Section 2: Category Sales Comparison -->
+        <div class="section">
+            <h2>2. Category Sales Comparison</h2>
+            <img src="categorysales.png" alt="Category Sales Comparison">
+            <p>
+                <strong>Highest Sales Category:</strong> Technology<br>
+                <strong>Lowest Sales Category:</strong> Furniture
+            </p>
+            <p>
+                <strong>Insights:</strong>
+                The Technology category outperforms others due to high consumer demand for electronics and gadgets. In
+                contrast, the Furniture category has the lowest sales, likely because of higher costs, longer purchase
+                cycles, or space constraints among customers.
+            </p>
+        </div>
+
+        <!-- Section 3: Monthly Sales Trend -->
+        <div class="section">
+            <h2>3. Monthly Sales Trend</h2>
+            <img src="monthlysales.png" alt="Monthly Sales Trend">
+            <p>
+                <strong>Insights:</strong>
+                The sales trend demonstrates a consistent spike in December, indicating strong holiday season shopping.
+                Sales drop in January and February, reflecting the post-holiday slump.
+                Mid-year months (June and July) show steady performance, potentially driven by mid-year campaigns or
+                specific seasonal needs.
+            </p>
+            <p>
+                These patterns suggest that promotional efforts should be intensified during peak months, while slower
+                periods could be used to introduce discounts or clearance sales.
+            </p>
+        </div>
+
+        <!-- Section 4: Profit vs. Sales Analysis -->
+        <div class="section">
+            <h2>4. Profit vs. Sales Analysis</h2>
+            <img src="profilevssales.png" alt="Profit vs. Sales Analysis">
+            <p>
+                <strong>Insights:</strong>
+                The scatter plot highlights the relationship between sales and profit across sub-categories:
+            <ul>
+                <li>Sub-categories like <strong>Tables</strong> and <strong>Bookcases</strong> show high sales but
+                    minimal or negative profit margins, possibly due to high production costs or excessive discounts.
+                </li>
+                <li>Sub-categories such as <strong>Phones</strong> and <strong>Copiers</strong> have both high sales and
+                    profit, indicating strong market demand and efficient cost management.</li>
+                <li>Low-profit sub-categories could benefit from revisiting pricing strategies or reducing costs to
+                    improve profitability.</li>
+            </ul>
+            </p>
+        </div>
+
+        <!-- Section 5: Sales by Shipping Mode -->
+        <div class="section">
+            <h2>5. Sales by Shipping Mode</h2>
+            <img src="salesbyshipping.png" alt="Sales by Shipping Mode">
+            <p>
+                <strong>Highest Sales Mode:</strong> Standard Class<br>
+                <strong>Lowest Sales Mode:</strong> Same Day
+            </p>
+            <p>
+                <strong>Insights:</strong>
+                Standard Class dominates sales, reflecting its affordability and popularity among customers.
+                Same Day shipping has the lowest sales due to higher costs, limiting its appeal to time-sensitive
+                customers only.
+                These findings suggest focusing on optimizing Standard Class logistics while exploring ways to make Same
+                Day shipping more cost-effective.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created by Kareena Kunwar | Tableau Analysis for Superstore Dataset</p>
+    </footer>
 </body>
+
 </html>
